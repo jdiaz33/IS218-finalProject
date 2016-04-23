@@ -26,8 +26,8 @@
 	      
 	      $login = new loginView;
 
-	      $header_html = $login->getHeader();
-	      $this->html .= $header_html;
+	      $loginPage = $login->getLoginPage();
+	      $this->html .= $loginPage;
 	    }
 
 	    public function post() {}
