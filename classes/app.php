@@ -21,7 +21,7 @@
 	<?php
 	  class app {
 	    public function __construct() {
-	      $controller = 'homepageCtrl';
+	      $controller = 'loginCtrl';
 
 	      if(isset($_REQUEST['controller'])) {
 	        $controller = $_REQUEST['controller'];
