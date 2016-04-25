@@ -47,7 +47,20 @@
 	        }
 	      }
 	      else {
-		echo 'registering';
+		$myusername = mysqli_real_escape_string($db,$_POST['username']);
+		$mypassword = mysqli_real_escape_string($db,$_POST['password']);
+		$mypassword2 = mysqli_real_escape_string($db,$_POST['password2']);
+
+		if($mypassword == $mypassword2) {
+		  $sql = "INSERT INTO User (Username, Password) VALUES
+		  ('$myusername', '$mypassword')";
+		  if($db->query($sql) === TRUE) {
+		    echo "New record created successfully";
+		  }
+		  else {
+		    echo "Error: " . $sql . "<br>" . $db->error;
+		  }
+		}
 	      }
 	    }
 
