@@ -18,7 +18,7 @@
 		</head>
 		
 		<body>
-		  <div class="container">
+		  <div class="container" style="margin-top:100px">
 		    <section id="content">
 		      <form id="login" action="index.php?controller=loginCtrl"
 		      method="post">
@@ -42,6 +42,9 @@
 			</div>
 		      </form>
 		    </section>
+		    <div style="margin-top:100px">
+		      <img src="img/cars.png" alt="cars" width="100%">
+		    </div>
 		  </div>
 		</body>
 	      </html>';
@@ -64,7 +67,7 @@
 		  <link rel="stylesheet" href="css/login.css">
 		</head>
 		<body>
-		  <div class="container">
+		  <div class="container" style="margin-top:100px">
 		    <section id="content">
 		      <form id="login" action="index.php?controller=loginCtrl"
 		      method="post">
@@ -84,6 +87,9 @@
 			</div>
 		      </form>
 		    </section>
+		    <div style="margin-top:100px">
+		      <img src="img/cars.png" alt="cars" width="100%">
+		    </div>
 		  </div>
 		</body>
 	      </html>';
