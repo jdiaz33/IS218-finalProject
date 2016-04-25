@@ -35,7 +35,7 @@
 			  <input type="password" placeholder="Confirm Password"
 			  required="" id="password" name="password2"/>
 			</div>
-
+			<input type="hidden" name="form" value="register">
 			<div>
 			  <input type="submit" value="Register" />
 			  <a href="index.php">Log in</a>
@@ -77,6 +77,7 @@
 			  <input type="password" placeholder="Password" required=""
 			  id="password" name="password"/>
 			</div>
+			<input type="hidden" name="form" value="login">
 			<div>
 			  <input type="submit" value="Log in" />
 			  <a href="index.php?form=register">Register</a>
