@@ -73,8 +73,8 @@
 		      method="post">
 		        <h1>Login Form</h1>
 			<div>
-			  <input type="text" placeholder="Username" required=""
-			  id="username" name="username" />
+			  <input type="text" placeholder="Username" id="username"
+			  name="username" required />
 			</div>
 			<div>
 			  <input type="password" placeholder="Password" required=""
