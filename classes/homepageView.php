@@ -50,8 +50,11 @@
 	    public function getNavBar() {
 	      
 	      $navBar = '
-	        <div>
-	         <img src="img/navy-background.png" alt="navy">
+	        <div style="background-image: url(img/navy-background.png); width:85%; margin:auto; border:2px solid; border-radius:5px">
+	           <div class="container">
+	             <h1 style="color:white">WELCOME</h1>
+	             <h3 style="color:white">'.$_SESSION['login_user'].'</h3>
+	           </div>
 	        </div>
 	      ';
 	      
@@ -62,6 +65,7 @@
 	    public function getUserInventory($keys, $result) {
 	    
 	      $userInventory = '
+	        <br>
 	      <div class="container">
 		 	    <h1>MY CARS</h1>
 		 	    <table>
