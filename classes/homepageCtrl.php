@@ -12,14 +12,14 @@
 	      define('DB_DATABASE', 'jld33');
 	      $db = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 	      
-	      $sql = "SELECT * FROM carInventory WHERE 1";
+	      $sql = "SELECT * FROM carInventory";
 	      $result = mysqli_query($db, $sql);
-	      
-	      	      
+	      $row = $result->fetch_assoc();
+	      $keys = (array_keys($row));
+	      	     
 	      $homepage = new homepageView;
-
-	      $page = $homepage->getPage($result);
-	      $this->html .= $page;
+	      $inventoryTable = $homepage->getCarInventory($keys, $result);
+	      $this->html .= $inventoryTable;
 	    }
 
 	    public function post() {}
