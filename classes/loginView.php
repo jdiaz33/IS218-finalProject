@@ -18,14 +18,23 @@
 		</head>
 		
 		<body>
-		  <div class="container" style="margin-top:100px">
+		  <div class="container" style="margin-top:50px">
 		    <section id="content">
 		      <form id="login" action="index.php?controller=loginCtrl"
 		      method="post">
 		        <h1>Register Form</h1>
+		    <div>
+		      <input type="text" placeholder="Name" id="username" name="name" required />
+		    </div>
+		    <div>
+		      <input type="text" placeholder="Last Name" id="username" name="lastName" required />
+		    </div>
 			<div>
 			  <input type="text" placeholder="Username" required=""
 			  id="username" name="username" />
+			</div>
+			<div>
+			  <input type="text" placeholder="email" id="username" name="email" required />
 			</div>
 			<div>
 			  <input type="password" placeholder="Password" required=""
@@ -67,7 +76,7 @@
 		  <link rel="stylesheet" href="css/login.css">
 		</head>
 		<body>
-		  <div class="container" style="margin-top:100px">
+		  <div class="container" style="margin-top:50px">
 		    <section id="content">
 		      <form id="login" action="index.php?controller=loginCtrl"
 		      method="post">
