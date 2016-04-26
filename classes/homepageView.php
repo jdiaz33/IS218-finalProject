@@ -2,12 +2,12 @@
 	<?php
 	  class homepageView {
 	    
-	    public function getPage($keys, $result) {
+	    public function getCarInventory($keys, $result) {
 			
 		  session_start();
 		  
 	      
-	      $page = '<!DOCTYPE html>
+	      $carInventory = '<!DOCTYPE html>
 	        <html lang="en">
 	        	<head>
 		  			<meta charset="utf-8">
@@ -47,24 +47,28 @@
 		   					<thead>
 		   						<tr>';
 		   							for($i=0; $i<count($keys); $i++){
-		   								$page .= '<th>'.$keys[$i].'</th>';
+		   								if($keys[$i] != 'UserId') {
+		   									$carInventory .= '<th>'.$keys[$i].'</th>';
+		   								}
 		   							}
-		   			   $page .='</tr>
+		   	   $carInventory .='</tr>
 		   					</thead>
 		   					<tbody>';
 		   							foreach($result as $record) {
-		   								$page .= '<tr>';
+		   								$carInventory .= '<tr>';
 		   								for($i=0; $i<count($record); $i++) {
-		   									$page .= '<td>'.$record[$keys[$i]].'</td>';
+		   									if($keys[$i] != 'UserId') {
+		   										$carInventory .= '<td>'.$record[$keys[$i]].'</td>';
+		   									}
 		   								}
-		   								$page .= '</tr>';
+		   								$carInventory .= '</tr>';
 		   							}
-		   		   $page .='</tbody>
+		   		   $carInventory .='</tbody>
 		   				</table>
 		   			</div>
 		   		</body>
 		   	</html>';
 
-	      return $page;
+	      return $carInventory;
 	    }
 	 }
