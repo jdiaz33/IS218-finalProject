@@ -25,8 +25,10 @@
 	      $navBar = $homepage->getNavBar();
 	      $this->html .= $navBar;
 	      
-	      $userInventory = $homepage->getUserInventory($keys, $result);
-	      $this->html .= $userInventory;
+	      if($row != 0) {
+	        $userInventory = $homepage->getUserInventory($keys, $result);
+	        $this->html .= $userInventory;
+	      }
 	      
 	      $sql = "SELECT * FROM carInventory";
 	      $result = mysqli_query($db, $sql);
@@ -35,6 +37,9 @@
 	      	     	      
 	      $inventoryTable = $homepage->getCarInventory($keys, $result);
 	      $this->html .= $inventoryTable;
+	      
+	      $buttons = $homepage->getButtons();
+	      $this->html .= $buttons;
 	      
 	      $footer = $homepage->getFooter();
 	      $this->html .= $footer;
