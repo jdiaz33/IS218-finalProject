@@ -124,9 +124,6 @@
 		   							}
 		   		   $carInventory .='</tbody>
 		   				</table>
-		   			</div>
-		   			<div>
-		   			  <a href="classes/logout.php">Logout</a>
 		   			</div>';
 
 	      return $carInventory;
@@ -135,8 +132,20 @@
 	    
 	    public function getButtons() {
 	      $buttons = '
+	        <br>
 	        <div class="container">
-	          <a href="classes/logout.php">Logout</a>
+	          <div style="width:48%; float:left">
+	          <form action="index.php?controller=carformCtrl" method="post">
+	            <button type="submit" style="background-color:#003366; color:white; font-weight:bold; font-size:19px; width:120px; height:35px; border: 2px solid black; border-radius:5px; margin-left:10px">+ Add Car</button>
+	          </form>
+	          </div>
+	          <div style="width:48%; float:right">
+	            <div style="width:30%; float:right">
+	              <form action="classes/logout.php" method="post">
+	                <button type="submit" style="background-color:#003366; color:white; font-weight:bold; font-size:19px; width:120px; height:35px; border: 2px solid black; border-radius:5px">Logout</button>
+	              </form>
+	            </div>
+	          </div>
 	        </div>';
 	        
 	        return $buttons;
