@@ -133,6 +133,16 @@
 	    }
 	    
 	    
+	    public function getButtons() {
+	      $buttons = '
+	        <div class="container">
+	          <a href="classes/logout.php">Logout</a>
+	        </div>';
+	        
+	        return $buttons;
+	    }
+	    
+	    
 	    public function getFooter() {
 	      
 	      $footer = '</body>
