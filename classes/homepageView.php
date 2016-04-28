@@ -50,7 +50,8 @@
 	    public function getNavBar() {
 	      
 	      $navBar = '
-	        <div style="background-image: url(img/navy-background.png); width:85%; margin:auto; border:2px solid; border-radius:5px">
+	        <br>
+		<div style="background-image: url(img/navy-background.png); width:85%; margin:auto; border:2px solid; border-radius:5px">
 	           <div class="container">
 	             <h1 style="color:white">WELCOME</h1>
 	             <h3 style="color:white">'.$_SESSION['login_user'].'</h3>
@@ -83,8 +84,14 @@
 		 	          $userInventory .= '<tr>';
 		 	          for($i=0; $i<count($record); $i++) {
 		 	            if($keys[$i] != 'UserId') {
-		 	              $userInventory .= '<td>'.$record[$keys[$i]].'</td>';
-		 	            }
+				     if($keys[$i] == 'Price'){
+ 				      $userInventory .= '<td>$
+				      '.$record[$keys[$i]].'</td>';
+				     }
+				     else {
+		 	          $userInventory .='<td>'.$record[$keys[$i]].'</td>';
+				     }
+				    }
 		 	          }
 		 	        }
 		 	      $userInventory .= '</tbody>
@@ -100,31 +107,40 @@
 		  session_start();
 		  
 	      $carInventory = '
-		   			<div class="container">
-		   			  <h1>CAR INVENTORY</h1>
-		   				<table>
-		   					<thead>
-		   						<tr>';
-		   							for($i=0; $i<count($keys); $i++){
-		   								if($keys[$i] != 'UserId') {
-		   									$carInventory .= '<th>'.$keys[$i].'</th>';
-		   								}
-		   							}
-		   	   $carInventory .='</tr>
-		   					</thead>
-		   					<tbody>';
-		   							foreach($result as $record) {
-		   								$carInventory .= '<tr>';
-		   								for($i=0; $i<count($record); $i++) {
-		   									if($keys[$i] != 'UserId') {
-		   										$carInventory .= '<td>'.$record[$keys[$i]].'</td>';
-		   									}
-		   								}
-		   								$carInventory .= '</tr>';
-		   							}
-		   		   $carInventory .='</tbody>
-		   				</table>
-		   			</div>';
+	       <div class="container">
+		<h1>CAR INVENTORY</h1>
+	   	 <table>
+		  <thead>
+		   <tr>';
+		    for($i=0; $i<count($keys); $i++){
+		     if($keys[$i] != 'UserId') {
+		      $carInventory .= '<th>'.$keys[$i].'</th>';
+		     }			}
+		    $carInventory .='
+		   </tr>
+		  </thead>
+		  <tbody>';
+		  
+		  foreach($result as $record) {
+		   $carInventory .='
+		   <tr>';
+		    for($i=0; $i<count($record); $i++) {
+		     if($keys[$i] != 'UserId') {
+		      if($keys[$i] == 'Price') {
+		       $carInventory .= '<td>$ '.$record[$keys[$i]].'</td>';
+		      }
+		      else {
+		       $carInventory .= '<td>'.$record[$keys[$i]].'</td>';
+		      }
+		     }
+		    }
+		   $carInventory .='
+		   </tr>';
+		  }
+		  $carInventory .='
+		  </tbody>
+		 </table>
+		</div>';
 
 	      return $carInventory;
 	    }
@@ -135,9 +151,13 @@
 	        <br>
 	        <div class="container">
 	          <div style="width:48%; float:left">
-	          <form action="index.php?controller=carformCtrl" method="post">
-	            <button type="submit" style="background-color:#003366; color:white; font-weight:bold; font-size:19px; width:120px; height:35px; border: 2px solid black; border-radius:5px; margin-left:10px">+ Add Car</button>
-	          </form>
+	            <button type="submit" style="background-color:#003366;
+		    color:white; font-weight:bold; font-size:19px; width:120px;
+		    height:35px; border: 2px solid black; border-radius:5px;
+		    margin-left:10px"><a
+		    href="index.php?controller=carformCtrl"
+		    style="color:white; text-decoration:none">+ Add
+		    Car</a></button>
 	          </div>
 	          <div style="width:48%; float:right">
 	            <div style="width:30%; float:right">
