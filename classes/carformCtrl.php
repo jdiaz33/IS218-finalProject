@@ -32,9 +32,13 @@
    $output = curl_exec($ch);
 
    curl_close($ch);
-   print_r($output);
+   
    $response = json_decode($output);
    print_r($response);
+   echo '<br>'.$response->make->name;
+   echo '<br>'.$response->model->name;
+   echo '<br>'.$response->years[0]->year;
+    
   }
 
   public function put() {}
