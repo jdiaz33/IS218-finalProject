@@ -41,8 +41,42 @@
    //setup data to make the DB query
    $userid = $_SESSION['user_id'];
    $make = $response->make->name;
-   $modle = $response->model->name;
+   $model = $response->model->name;
    $year = $response->years[0]->year;
+   $condition = $_POST['cond'];
+   $price;
+
+   if($condition == 'new'){
+    $price = $response->price->baseInvoice;
+   }
+   else{
+    $price = $response->price->usedPrivateParty;
+   }
+   //echo $price;
+   //print_r($_POST);
+   //print_r($response);
+   //print_r($response->price);
+   //print_r($response->price->baseInvoice);
+   //print_r($response->price->usedPrivateParty);
+   //sql prep
+   define('DB_SERVER', 'sql1.njit.edu');
+   define('DB_USERNAME', 'jld33');
+   define('DB_PASSWORD', 'CsjGVvOb');
+   define('DB_DATABASE', 'jld33');
+   $db = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+
+   //sql query
+   $sql = "INSERT INTO carInventory (VIN, UserId, Make, Model, Year, carCondition,
+   Price) VALUES('$vin', '$userid', '$make', '$model', '$year', '$condition',
+   '$price')";
+
+   if($db->query($sql) === TRUE) {
+    echo "New record created successfully";
+    header("location: index.php?controller=homepageCtrl");
+   }
+   else {
+    echo "Error: " . $sql . "<br>" . $db->error;
+   }
   }
 
   public function put() {}
