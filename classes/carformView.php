@@ -23,14 +23,40 @@
  
   public function getNavBar() {
    $navBar = '
+    <br>
     <div style="background-image: url(img/navy-background.png); width:85%; margin:auto; border:2px solid; border-radius:5px">
      <div class="container">
-      <h1 style="color:white">WELCOME</h1>
       <h3 style="color:white">'.$_SESSION['login_user'].'</h3>
      </div>
     </div>';
   
    return $navBar;
+  }
+
+  public function getBody() {
+    $body = '
+     <br><br><br>
+     <div style="width:60%; margin:auto; background-color:#003366;
+     border-radius:5px; border: 2px solid black; padding:15px; padding-bottom:40px">
+      <h2 style="color:white">NEW CAR</h2>
+      <br>
+      <div style="width:70%; margin:auto; text-align:center">
+       <form action="index.php?controller=carformCtrl" method="post">
+        <input type="text" placeholder="VIN #" style="width:50%; height:30px;
+        background-color:gray; border:2px solid black; font-size:20px; color:white;
+        padding:5px; border-radius:5px">
+	<br><br><br>
+	<button type="submit" style="background-color:gray; color:white;
+	font-weight:bold; font-size:19px; width:120px; height:35px; border:2px solid
+	black; border-radius:5px">Submit</button>
+       </form>
+      </div>
+     </div>
+     <div class="container">
+      <img src="img/luxuryCars.png" alt="luxury" width="100%">
+     </div>';
+
+    return $body;
   }
   
   public function getFooter() {
