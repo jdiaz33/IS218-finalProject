@@ -42,9 +42,17 @@
       <br>
       <div style="width:70%; margin:auto; text-align:center">
        <form action="index.php?controller=carformCtrl" method="post">
-        <input type="text" placeholder="VIN #" style="width:50%; height:30px;
+        <input type="text" placeholder="VIN #" name="vin" style="width:50%;
+	height:30px;
         background-color:gray; border:2px solid black; font-size:20px; color:white;
         padding:5px; border-radius:5px">
+	<br><br><br>
+	<select style="width:50%; height:30px; background-color:gray; border:2px
+	solid black; color:white; padding:5px; font-size:15px; font-weight:bold">
+	 <option selected disabled>Choose Condition of Car</option>
+	 <option value="used">Used</option>
+	 <option value="new">New</option>
+	</select>
 	<br><br><br>
 	<button type="submit" style="background-color:gray; color:white;
 	font-weight:bold; font-size:19px; width:120px; height:35px; border:2px solid
