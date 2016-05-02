@@ -83,7 +83,12 @@
 		 	          $userInventory .= '<tr>';
 		 	          for($i=0; $i<count($record); $i++) {
 		 	            if($keys[$i] != 'UserId') {
+		 	             if($keys[$i] == 'Price'){
+		 	              $userInventory .= '<td>$ '.$record[$keys[$i]].'</td>';
+		 	             }
+		 	             else {
 		 	              $userInventory .= '<td>'.$record[$keys[$i]].'</td>';
+		 	             }
 		 	            }
 		 	          }
 		 	          $userInventory .= '<td><a href="index.php?controller=detailCtrl&vin='.$record['VIN'].'">
@@ -120,7 +125,12 @@
 		   								$carInventory .= '<tr>';
 		   								for($i=0; $i<count($record); $i++) {
 		   									if($keys[$i] != 'UserId') {
+		   									 if($keys[$i] == 'Price'){
+		 	              					  $carInventory .= '<td>$ '.$record[$keys[$i]].'</td>';
+		 	             					 }
+											 else {
 		   										$carInventory .= '<td>'.$record[$keys[$i]].'</td>';
+		   									 }
 		   									}
 		   								}
 		   								$carInventory .= '<td><a href="index.php?controller=detailCtrl&vin='.$record['VIN'].'">
