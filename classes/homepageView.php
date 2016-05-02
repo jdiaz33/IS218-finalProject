@@ -140,9 +140,9 @@
 	        <br>
 	        <div class="container">
 	          <div style="width:48%; float:left">
-	          <form action="index.php?controller=carformCtrl" method="post">
-	            <button type="submit" style="background-color:#003366; color:white; font-weight:bold; font-size:19px; width:120px; height:35px; border: 2px solid black; border-radius:5px; margin-left:10px">+ Add Car</button>
-	          </form>
+			   <button type="submit" style="background-color:#003366; color:white; font-weight:bold; font-size:19px; width:120px; height:35px; border: 2px solid black; border-radius:5px; margin-left:10px">
+			    <a href="index.php?controller=carformCtrl" style="color:white; text-decoration:none">+ Add Car</a>
+			   </button>	          
 	          </div>
 	          <div style="width:48%; float:right">
 	            <div style="width:30%; float:right">
