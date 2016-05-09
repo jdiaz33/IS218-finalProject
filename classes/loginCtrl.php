@@ -23,8 +23,10 @@
 	      
 	        $myusername = mysqli_real_escape_string($db,$_POST['username']);
 	        $mypassword = mysqli_real_escape_string($db,$_POST['password']);
+
+		$password = md5($mypassword);
 		
-	        $sql = "SELECT userName, userId FROM carUser WHERE userName = '$myusername' and password = '$mypassword'";
+	        $sql = "SELECT userName, userId FROM carUser WHERE userName = '$myusername' and password = '$password'";
 	        $result = mysqli_query($db, $sql);
 	        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	      
@@ -54,7 +56,9 @@
 
 		if($mypassword == $mypassword2) {
 		  $id = uniqid();
-		  $sql = "INSERT INTO carUser (userId, name, lastName, userName, email, password) VALUES('$id', '$name', '$lastName', '$myusername', '$email', '$mypassword')";
+		  $password = md5($mypassword);
+
+		  $sql = "INSERT INTO carUser (userId, name, lastName, userName, email, password) VALUES('$id', '$name', '$lastName', '$myusername', '$email', '$password')";
 		  if($db->query($sql) === TRUE) {
 		    echo "New record created successfully";
 		    session_start();
