@@ -14,6 +14,9 @@
    	  $navBar = $editPage->getNavBar();
       $this->html .= $navBar;
       
+      $body = $editPage->getBody();
+      $this->html .= $body;
+      
       $footer = $editPage->getFooter();
       $this->html .= $footer;
     
