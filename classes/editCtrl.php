@@ -26,7 +26,7 @@
       //response from cURL calling the Edmunds API
       $response = json_decode($output);
       
-      $body = $editPage->getBody($response);
+      $body = $editPage->getBody($response, $vin);
       $this->html .= $body;
       
       $footer = $editPage->getFooter();
@@ -34,7 +34,37 @@
     
     }
     
-    public function post() {}
+    public function post() {
+    
+      session_start();
+      $vin = $_POST['vin'];
+      
+      //sql prep
+      define('DB_SERVER', 'sql1.njit.edu');
+      define('DB_USERNAME', 'jld33');
+      define('DB_PASSWORD', 'CsjGVvOb');
+      define('DB_DATABASE', 'jld33');
+      $db = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+      
+      if($_GET['action'] == "delete"){
+      
+        //sql query
+        $sql = "DELETE FROM carInventory WHERE VIN = '$vin'";
+        
+        if($db->query($sql) === TRUE) {
+          echo "Record deleted successfully";
+          header("location: index.php?controller=homepageCtrl");
+        }
+        else {
+          echo "Error: " . $sql . "<br>" . $db->error;
+        }
+      
+      }
+      else {
+        echo 'this is price';
+      }
+    
+    }
     
     public function put() {}
     public function delete() {}
