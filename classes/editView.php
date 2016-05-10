@@ -25,7 +25,6 @@
    $navBar = '
     <div style="background-image: url(img/navy-background.png); width:85%; margin:auto; border:2px solid; border-radius:5px">
      <div class="container">
-      <h1 style="color:white">WELCOME</h1>
       <h3 style="color:white">'.$_SESSION['login_user'].'</h3>
      </div>
     </div>';
@@ -34,31 +33,27 @@
   }
   
   
-  public function getBody() {
+  public function getBody($car) {
     $body = '
      <br><br><br>
      <div style="width:60%; margin:auto; background-color:#003366;
      border-radius:5px; border: 2px solid black; padding:15px; padding-bottom:40px">
-      <h2 style="color:white">ADD CAR</h2>
+      <h2 style="color:white">'.$car->make->name.'&nbsp'.$car->model->name.'</h2>
       <br>
       <div style="width:70%; margin:auto; text-align:center">
-       <form action="index.php?controller=carformCtrl" method="post">
-        <input type="text" placeholder="VIN #" name="vin" style="width:50%;
+       <form action="index.php?controller=editCtrl" method="post">
+        <input type="text" placeholder="New Price" name="vin" style="width:50%;
 	height:30px;
         background-color:gray; border:2px solid black; font-size:20px; color:white;
         padding:5px; border-radius:5px">
 	<br><br><br>
-	<select name="cond" style="width:50%; height:30px; background-color:gray;
-	border:2px
-	solid black; color:white; padding:5px; font-size:15px; font-weight:bold">
-	 <option selected disabled>Choose Condition of Car</option>
-	 <option  value="used">Used</option>
-	 <option  value="new">New</option>
-	</select>
-	<br><br><br>
 	<button type="submit" style="background-color:gray; color:white;
 	font-weight:bold; font-size:19px; width:120px; height:35px; border:2px solid
 	black; border-radius:5px">Submit</button>
+       </form>
+       <br>
+       <form action="index.php?controller=editCtrl&action=delete" method="post">
+         <button type="submit" style="background-color:#cc0000; color:white; font-weight:bold; font-size:19px; width:220px; height:35px; border:2px solid black; border-radius:5px">Delete Car</button>
        </form>
       </div>
      </div>
