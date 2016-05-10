@@ -76,7 +76,8 @@
 		 	              $userInventory .= '<th>'.$keys[$i].'</th>';
 		 	            }
 		 	          }
-		 	          $userInventory .= '<th>Details</th></tr>
+		 	          $userInventory .= '<th>Details</th>
+		 	           <th>Edit</th></tr>
 		 	      </thead>
 		 	      <tbody>';
 		 	        foreach($result as $record) {
@@ -93,6 +94,9 @@
 		 	          }
 		 	          $userInventory .= '<td><a href="index.php?controller=detailCtrl&vin='.$record['VIN'].'">
 		 	           <img src="img/info.png" alt="details" height="25" width="25">
+		 	          </a></td>
+		 	          <td><a href="index.php?controller=editCtrl&vin='.$record['VIN'].'">
+		 	           <img src="img/edit.png" alt="edit" height="25" width="25">
 		 	          </a></td></tr>';
 		 	        }
 		 	      $userInventory .= '</tbody>
