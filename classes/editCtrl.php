@@ -61,7 +61,19 @@
       
       }
       else {
-        echo 'this is price';
+        
+        $newPrice = $_POST['price'];
+        
+        //sql query
+        $sql = "UPDATE carInventory SET Price = '$newPrice' WHERE VIN = '$vin'";
+        
+        if($db->query($sql) === TRUE){
+          echo "Record updated successfully";
+          header("location: index.php?controller=homepageCtrl");
+        }
+        else {
+          echo "Error: " . $sql . "<br>" . $db->error;
+        }
       }
     
     }
