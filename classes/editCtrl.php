@@ -15,7 +15,7 @@
       $this->html .= $navBar;
       
       $vin = $_GET['vin'];
-      //set cURL to call Edmunds API
+      /*//set cURL to call Edmunds API
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL,
       "https://api.edmunds.com/api/vehicle/v2/vins/$vin?fmt=json&api_key=u48d7aetdk4yz6pwqnzd62ez");
@@ -24,9 +24,21 @@
       curl_close($ch);
       
       //response from cURL calling the Edmunds API
-      $response = json_decode($output);
+      $response = json_decode($output);*/
       
-      $body = $editPage->getBody($response, $vin);
+      //sql prep
+      define('DB_SERVER', 'sql1.njit.edu');
+      define('DB_USERNAME', 'jld33');
+      define('DB_PASSWORD', 'CsjGVvOb');
+      define('DB_DATABASE', 'jld33');
+      $db = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+      
+      //sql query
+      $sql = "SELECT * FROM carInventory WHERE VIN = '$vin'";
+      $response = $db->query($sql);
+      $row = $response->fetch_assoc();
+
+      $body = $editPage->getBody($row, $vin);
       $this->html .= $body;
       
       $footer = $editPage->getFooter();
@@ -63,9 +75,10 @@
       else {
         
         $newPrice = $_POST['price'];
+        $condition = $_POST['cond'];
         
         //sql query
-        $sql = "UPDATE carInventory SET Price = '$newPrice' WHERE VIN = '$vin'";
+        $sql = "UPDATE carInventory SET Price = '$newPrice', carCondition = '$condition' WHERE VIN = '$vin'";
         
         if($db->query($sql) === TRUE){
           echo "Record updated successfully";
